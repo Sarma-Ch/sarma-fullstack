@@ -25,3 +25,20 @@ Step 5 : Push to GIt Hub
 Now in this I have pushed my work from local storage to the git repo using the git push cmd
 
 
+
+ # History and diffs
+
+1. git log : 
+I showed me a commit id  and also Author  and also it gave the  <email address>
+It showed me the date & time of my commit
+It also gave me the commit msg and it gaves th elist by clicking on enter it gave every commit history
+
+
+2. git diff :
+It showed the changes made before commit
+
+
+3. git show :
+git show, shows the changes made in the particular one commit
+The name of updated files and also changes in it
+
