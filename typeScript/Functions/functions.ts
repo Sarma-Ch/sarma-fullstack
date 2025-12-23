@@ -1,76 +1,66 @@
-// DRILL 1: Function Basics
-function addNumbers(a: number, b: number): number {
-  return a + b;
-}
+// 1 FUNCTION BASICS
+let Add: (x: number, y: number) => number = function (x, y): number {
+  return x + y;
+};
+console.log(Add(5, 6));
 
-console.log(addNumbers(3, 4)); // 7
+let Sum: (x: number, y: number) => void = function (x, y): void {
+  console.log(x + y);
+};
+Sum(2, 20);
 
-function logMessage(): void {
-  console.log("No return value");
-}
-
-logMessage();
-// logMessage(); return "test"; // Error: Type 'string' is not assignable to type 'void'
-
-// DRILL 2: Optional & Default Parameters
-function greetUser(name: string, age?: number): void {
+// 2 OPTIONAL & DEFAULT PARAMS
+function greet(name: string, age = 18): any {
   if (age !== undefined) {
-    console.log(`Hello ${name}, age ${age}`);
+    console.log(`Hey ${name}, Are you >  ${age} yrs`);
   } else {
-    console.log(`Hello ${name}`);
+    console.log(`hey ${name}`);
   }
 }
+greet("sarma", 12);
+greet("bro");
 
-greetUser("Alice");
-greetUser("Bob", 25);
+//3  Rest Parameters
 
-function greetWithDefault(name: string, age: number = 18): void {
-  console.log(`Hello ${name}, age ${age}`);
+function sumAll(...nums: number[]): number {
+  return nums.reduce((total, num) => total + num, 0);
 }
+console.log(sumAll(1, 2, 3));
+console.log(sumAll(10));
+console.log(sumAll());
 
-greetWithDefault("Charlie");
-greetWithDefault("Dana", 30);
-
-// DRILL 3: Rest Parameters
-function sumAllNumbers(...nums: number[]): number {
-  return nums.reduce((acc, n) => acc + n, 0);
+function sumall(...nums: (string | number)[]): number {
+  return nums.reduce((total: number, num) => total + Number(num), 0);
 }
+console.log(sumall(1, "2", 3, "4"));
 
-console.log(sumAllNumbers(1, 2, 3, 4)); // 10
-console.log(sumAllNumbers(5, 10)); // 15
+// 4 Function Overloading
 
-// function sumMixed(...values: (string | number)[]): number {
-//   return values.reduce((acc, v) => acc + Number(v), 0);
-// }
+function toArray(x: string | number): string[] | number[] {
+  if (typeof x === "string") return [x];
+  else {
+    return [x];
+  }
+}
+console.log(toArray("KAMESWARARAO"));
+console.log(toArray(12345678));
+// console.log(toArray(true))
 
-// console.log(sumMixed("1", 2, "3")); // 6
+// 5 UNIONS IN FUNCTIONS
 
-// // DRILL 4: Function Overloading
-// function toArrayValue(x: string): string[];
-// function toArrayValue(x: number): number[];
-// // function toArrayValue(x: string | number): string[] | number[] {
-//   // return Array(x.length || x).fill(x);
-// }
-
-// console.log(toArrayValue("hello")); // ["hello", "hello", "hello", "hello", "hello"]
-// console.log(toArrayValue(3)); // [3, 3, 3]
-
-// DRILL 5: Unions in Functions
-function formatValue(input: string | number | boolean): string {
-  if (typeof input === "string") {
-    return input.toUpperCase();
-  } else if (typeof input === "number") {
+function union(input: string | number | boolean): any {
+  if (typeof input === "string") return input.toUpperCase();
+  else if (typeof input === "number") {
     return input.toFixed(2);
   } else {
-    return input ? "true" : "false";
+    return input ? "TRUE" : "FALSE";
   }
 }
+console.log(union("cristiano"));
+console.log(union(808_763));
+console.log(union(true));
 
-console.log(formatValue("hello")); // "HELLO"
-console.log(formatValue(3.14159)); // "3.14"
-console.log(formatValue(true)); // "true"
-
-// DRILL 6: Control Flow with Types
+// 6: Control Flow with Types
 function checkEven(n: number): boolean {
   return n % 2 === 0;
 }
@@ -98,23 +88,25 @@ function handleState(state: ControlState): void {
       break;
     default:
       const exhaustive: never = state;
+      console.log(exhaustive);
   }
 }
 
-// DRILL 7: Higher-Order Functions
-function applyTwiceNumber(fn: (x: number) => number, val: number): number {
+// 7: Higher-Order Functions
+function applyTwice(fn: (x: number) => number, val: number): number {
   return fn(fn(val));
 }
 
-console.log(applyTwiceNumber((n) => n * 2, 5)); // 20
+console.log(applyTwice((n) => n * 2, 5)); // 20
 
 function applyTwiceGeneric<T>(fn: (x: T) => T, val: T): T {
   return fn(fn(val));
 }
 
-console.log(applyTwiceGeneric((s) => s + "!", "hi")); // "hi!!"
+const Twice = applyTwiceGeneric((s) => s + "!", "hi");
+console.log(Twice);
 
-// DRILL 8: Arrow Functions
+// 8: Arrow Functions
 const squareArrow = (n: number): number => n * n;
 
 const numbersArray = [1, 2, 3, 4, 5];
@@ -122,15 +114,15 @@ const doubledValues = numbersArray.map((n) => n * 2);
 const evenNumbers = numbersArray.filter((n) => n % 2 === 0);
 const totalSum = numbersArray.reduce((acc, n) => acc + n, 0);
 
-console.log(doubledValues); // [2, 4, 6, 8, 10]
-console.log(evenNumbers); // [2, 4]
-console.log(totalSum); // 15
+console.log(doubledValues);
+console.log(evenNumbers);
+console.log(totalSum);
 
 // DRILL 9: Function Type Annotations
 type MathCalculator = (a: number, b: number) => number;
 type StringValidator = (input: string) => boolean;
 
-const powerCalc: MathCalculator = (a, b) => a ** b;
+const Calc: MathCalculator = (a, b) => a ** b;
 const emailCheck: StringValidator = (input) => input.includes("@");
 
 function executeCalc(calcFn: MathCalculator, x: number, y: number): number {
@@ -141,10 +133,10 @@ function runValidator(validateFn: StringValidator, text: string): boolean {
   return validateFn(text);
 }
 
-console.log(executeCalc(powerCalc, 2, 3)); // 8
-console.log(runValidator(emailCheck, "test@email.com")); // true
+console.log(executeCalc(Calc, 2, 3));
+console.log(runValidator(emailCheck, "123@email.com"));
 
-// DRILL 10: Return Type Practice
+// DRILL 10: Return Type Practic
 function processUnknownData(data: unknown): string {
   if (typeof data === "string") {
     return data.toUpperCase();
@@ -170,18 +162,14 @@ function processArrayWithCallback(
 }
 
 const processedData = processArrayWithCallback([1, 2, 3], (v, i) => v * i);
-console.log(processedData); // [0, 2, 6]
+console.log(processedData);
 
 // DRILL 12: Practical Function Scenarios
-function validateUserProfile(
-  name: string,
-  email: string,
-  age?: number
-): boolean {
-  const hasName = name.length > 0;
-  const hasValidEmail = email.includes("@") && email.includes(".");
-  const hasValidAge = age === undefined || (age >= 0 && age < 150);
-  return hasName && hasValidEmail && hasValidAge;
+function validateUser(name: string, email: string, age?: number): boolean {
+  const Name = name.length > 0;
+  const ValidEmail = email.includes("@") && email.includes(".");
+  const ValidAge = age === undefined || (age >= 0 && age < 150);
+  return Name && ValidEmail && ValidAge;
 }
 
 function transformData(...inputs: (string | number)[]): string[] {
@@ -202,6 +190,6 @@ function createConfig(options: ConfigOptions = {}): ConfigOptions {
   };
 }
 
-console.log(validateUserProfile("John", "john@test.com", 25)); // true
-console.log(transformData(42, "hello", 3.14)); // ["42", "HELLO", "3.14"]
-console.log(createConfig({ debug: true })); // { debug: true, timeout: 5000, retries: 3 }
+console.log(validateUser("Sunanda", "kamya@gmail.com", 25));
+console.log(transformData(28, "hello", 3.14));
+console.log(createConfig({ debug: true }));
