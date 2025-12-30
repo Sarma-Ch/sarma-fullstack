@@ -1,3 +1,5 @@
+export {};
+
 function identity<T>(arg: T) {
   return arg;
 }
@@ -100,10 +102,10 @@ type user3 = {
 
 const user3 = { id: 3, name: "Narasimha" };
 
-type Readonly<T> = { readonly [K in keyof T]: T[K] };
+type _Readonly<T> = { readonly [K in keyof T]: T[K] };
 type ReadonlyUser3 = Readonly<user3>;
 
-type Partial<T> = { [K in keyof T]?: T[K] };
+type _Partial<T> = { [K in keyof T]?: T[K] };
 type Partial1 = Partial<user3>;
 const PartialUser: Partial1 = { name: "no" };
 console.log(PartialUser.id);
@@ -166,5 +168,5 @@ const forbidden: OmitAge = {
 console.log("User ommited age ", forbidden.id);
 
 // function pluck<T, K extends keyof T>(objs: T[], key: K): T[K][]{
-//   return 
+//   return
 // }

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "User1",
+    "name": "Sarma",
+    "email": "abc@gmail.com",
+    "roles": ["student, Triane"],
+    "active": true
+  },
+  {
+    "id": "User2",
+    "name": "Harika",
+    "email": "xyz@gmail.com",
+    "roles": ["student, Triane"],
+    "active": true
+  }
+]

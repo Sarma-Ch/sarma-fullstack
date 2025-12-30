@@ -1,3 +1,5 @@
+export {};
+
 type Status = "loading" | "success" | "error";
 
 const handle = (status: Status) => {
@@ -95,18 +97,18 @@ const Num: num = 1;
 const Boo: bool = true;
 type Nullable<T> = T | null;
 
-type NonNullable<T> = T extends null | undefined ? never : T;
+type NoNullable<T> = T extends null | undefined ? never : T;
 
-type NoN = NonNullable<string | null | undefined>; // string
+type NoN = NoNullable<string | null | undefined>; // string
 
 //6
-type User = {
+type UserType = {
   id?: number;
   name: string;
   age?: number;
 };
 
-type ReqUser = Required<User>;
+type ReqUser = Required<UserType>;
 
 const u1: ReqUser = {
   id: 1,
@@ -114,7 +116,7 @@ const u1: ReqUser = {
   age: 80,
 };
 
-type Freeze = Readonly<User>;
+type Freeze = Readonly<UserType>;
 
 const F1: Freeze = {
   id: 1,
@@ -138,7 +140,6 @@ let EHN: EventHandlerNames;
 
 EHN = "onClick";
 EHN = "onHover";
-// EHN = "onScroll"     // not exist
 
 type User1 = {
   id: string;
