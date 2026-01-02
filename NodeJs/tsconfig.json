@@ -1,10 +1,12 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "module": "commonjs",
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true
+    "verbatimModuleSyntax": false,
+    "types": ["jest", "node"]
   },
-  "include": ["**/*.ts", "rest_api_patterns/drill1/users01.js"]
+  "include": ["auth/drill_03/**/*.ts"]
 }

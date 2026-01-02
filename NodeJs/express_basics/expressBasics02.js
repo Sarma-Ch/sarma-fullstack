@@ -20,7 +20,7 @@ app.get("/users/:id/posts", (req, res) => {
     const limNum = limit ? Number(limit) : null;
     res.json({
         userId: id,
-        limit: limNum !== null && limNum !== void 0 ? limNum : "not provided",
+        limit: limNum ?? "not provided",
     });
 });
 app.use("*", (req, res) => {

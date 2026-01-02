@@ -1,6 +1,6 @@
 import express from "express";
-import tasksRoutes from "./routes/tasks01.js";
-import usersRoutes from "./routes/users01.js";
+import tasksRoutes from "./drill1/tasks01.js";
+import usersRoutes from "./drill1/users01.js";
 
 const app = express();
 

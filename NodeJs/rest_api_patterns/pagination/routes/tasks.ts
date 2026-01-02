@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import { validate } from "../middlewares/validate";
+import { validate } from "../../schemas/middlewares/validate";
 import { taskQuerySchema } from "../schemas/task.query.schema";
 
 const router = Router();

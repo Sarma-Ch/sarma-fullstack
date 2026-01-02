@@ -4,9 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const tasks_1 = __importDefault(require("./routes/tasks"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
-app.get("/", (req, res) => {
-    res.send("Server running");
+app.use("/tasks", tasks_1.default);
+app.listen(3000, () => {
+    console.log("Server running on port 3000");
 });
-exports.default = app; // 👈 THIS LINE IS REQUIRED
