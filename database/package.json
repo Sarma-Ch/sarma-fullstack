@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "start": "ts-node drill_03.ts"
+  },
+  "dependencies": {
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.x",
+    "ts-node": "^10.x",
+    "@types/node": "^25.0.6",
+    "@types/pg": "^8.16.0"
+  }
+}
