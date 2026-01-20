@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fonts and Variable Axes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?
+  family=Inter:opsz,wght@14..32,100..900&
+  family=Merriweather:wght@400;700&
+  family=Source+Code+Pro:wght@400;600&
+  display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="drill-03/style.css" />
+  </head>
+  <body>
+    <h1>Variable Font Weight Demo</h1>
+
+    <label>
+      Font weight:
+      <input
+        type="range"
+        min="100"
+        max="900"
+        step="1"
+        value="400"
+        id="weightSlider"
+      />
+      <span id="weightValue">400</span>
+    </label>
+    
+  <p id="sample"> Here I used Itr variable fonts
+  </p>
+
+  <pre><code>
+const weight = slider.value;
+sample.style.fontWeight = weight;
+  </code></pre>
+
+  <script>
+    const slider = document.getElementById("weightSlider");
+    const sample = document.getElementById("sample");
+    const value = document.getElementById("weightValue");
+
+    slider.addEventListener("input", () => {
+      sample.style.fontWeight = slider.value;
+      value.textContent = slider.value;
+    });
+  </script>
+
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,58 @@
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.7;
+  margin: 0;
+}
+.container {
+  max-width: 65ch;
+  padding: 3rem 1.5rem;
+  margin: auto;
+}
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+h4 {
+  font-size: 1.25rem;
+}
+h5 {
+  font-size: 1.1rem;
+}
+h6 {
+  font-size: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 2.5rem 0 1rem;
+}
+p {
+  margin: 0 0 1.25rem;
+  letter-spacing: 0.01em; /
+}
+article p:first-of-type::first-letter {
+  font-size: 3.5rem;
+  font-weight: 700;
+  float: left;
+  line-height: 1;
+  margin: 0.1rem 0.5rem 0 0;
+}
+.hero {
+  margin-top: 0;
+}
+@media (min-width: 768px) {
+  .hero {
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  }
+}

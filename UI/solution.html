@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="Colors/style.css" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./dist/tailwind.css" />
+  </head>
+  <body>
+    <div class="nav-links">
+      <a href="#movies">
+        <span class="material-symbols-outlined" aria-hidden="true">home</span>
+        <span>Home</span>
+      </a>
+      <a href="#books">
+        <span class="material-symbols-outlined" aria-hidden="true">search</span>
+        <span>Search</span>
+      </a>
+      <a href="#stats">
+        <span class="material-symbols-outlined" aria-hidden="true"
+          >settings</span
+        >
+        <span>Settings</span>
+      </a>
+    </div>
+    <div class="layout">
+      <header class="site-header">
+        <div class="header-text">
+          <h1>Movies & Books Hub</h1>
+          <p>The recommendations, just for you</p>
+        </div>
+
+        <button id="themeToggle" aria-label="Toggle dark mode">
+          Toggle dark mode
+        </button>
+      </header>
+
+      <nav class="top-nav">
+        <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      </nav>
+      <button class="icon-btn">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 5v14m7-7H5" />
+        </svg>
+        Download list
+      </button>
+
+      <section class="hero">
+        <h1>Semantic & Responsive Design</h1>
+        <p>Fluid typography and layouts</p>
+      </section>
+
+      <main>
+        <article>
+          <figure>
+            <picture>
+              <source
+                srcset="
+                  https://picsum.photos/600/400.webp   600w,
+                  https://picsum.photos/1200/800.webp 1200w
+                "
+                sizes="(max-width: 600px) 100vw, 800px"
+                type="image/webp"
+              />
+              <img
+                src="https://picsum.photos/1200/800"
+                alt="Random scenic photograph"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+            <figcaption>Optimized JPG photo</figcaption>
+          </figure>
+
+          <img src="extensions/graphic.png" alt="Decorative graphic" />
+
+          <img
+            src="extensions/logo.svg
+          "
+            alt="Site logo"
+          />
+
+          <h2>Pinterest</h2>
+
+          <img
+            src="https://picsum.photos/400/200"
+            alt="test"
+            style="border: 4px solid red"
+          />
+
+          <section id="movies">
+            <h3 class="mb-4 text-lg font-semibold">Movie picks for you</h3>
+
+            <div
+              class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-6"
+            >
+              <article
+                class="p-4 rounded-xl rounded-xl bg-[var(--brand)] text-white"
+              >
+                The Dead Poets Society
+              </article>
+
+              <article class="p-4 rounded-xl bg-blue-600 text-white">
+                Shawshank Redemption
+              </article>
+
+              <article class="p-4 rounded-xl bg-blue-600 text-white">
+                Fight Club
+              </article>
+            </div>
+            <!-- <ol>
+              <li>The Dead poets Society</li>
+              <li>Shawshank's Redemption</li>
+              <li>Fight Club</li>
+            </ol> -->
+          </section>
+          <section id="books">
+            <h3><h3>Book recommendations</h3></h3>
+            <ul>
+              <li>Over to you</li>
+              <li>Haunting Adeline</li>
+              <li>The White nights</li>
+            </ul>
+          </section>
+          <section id="stats">
+            <h3>Stats</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Type</th>
+                  <th scope="col">Count</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Movies</th>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <th scope="row">Books</th>
+                  <td>3</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </article>
+        <section class="swatches">
+          <div class="swatch" style="--l: 90%">L90</div>
+          <div class="swatch" style="--l: 75%">L75</div>
+          <div class="swatch" style="--l: 60%">L60</div>
+          <div class="swatch" style="--l: 45%">L45</div>
+          <div class="swatch" style="--l: 30%">L30</div>
+        </section>
+        <section class="icon-demo">
+          <h2>Icon Font vs SVG</h2>
+
+          <div class="icon-grid">
+            <span class="material-symbols-outlined icon">home</span>
+            <span class="material-symbols-outlined icon">search</span>
+            <span class="material-symbols-outlined icon">favorite</span>
+
+            <svg
+              class="icon svg-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 6v12m6-6H6"
+              />
+            </svg>
+
+            <span class="material-symbols-outlined icon">settings</span>
+            <span class="material-symbols-outlined icon">info</span>
+          </div>
+        </section>
+      </main>
+      <aside>
+        <h2><h2>Sidebar notes</h2></h2>
+        <p>Devs say, "Learning HTML is fun !", Do you agree with that ...?</p>
+      </aside>
+      <footer>
+        <p>&copy; SARMA.in</p>
+      </footer>
+      <script>
+        const toggle = document.getElementById("themeToggle");
+        const root = document.documentElement;
+
+        const saved = localStorage.getItem("theme");
+        if (saved) root.dataset.theme = saved;
+
+        toggle.addEventListener("click", () => {
+          const next = root.dataset.theme === "dark" ? "" : "dark";
+          root.dataset.theme = next;
+          localStorage.setItem("theme", next);
+        });
+      </script>
+    </div>
+  </body>
+</html>
